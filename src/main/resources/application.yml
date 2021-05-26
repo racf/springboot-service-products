@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: service-products
+    #servicio-productos
+  datasource:
+    #Local
+    url: jdbc:postgresql://127.0.0.1:5432/db_curso
+    username: user_test
+    password: user_04!28#!
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update #Se utiliza para mapear las clases del dominio a la DB, ademas cada campo nuevo que se le agregue automaticamente se refleja en la DB
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+server:
+#  port: 8001 #Puerto estatico
+  port: ${PORT:0} #Configuración de puertos dinamicos de instancias
+  
+  
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+  #Configuración de puertos dinamicos en la instancia que se va a generar varias veces
+  instance:
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
