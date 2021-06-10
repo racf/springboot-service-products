@@ -19,8 +19,8 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
 server:
-#  port: 8001 #Puerto estatico
-  port: ${PORT:0} #Configuración de puertos dinamicos de instancias
+  port: 8001 #Puerto estatico
+#  port: ${PORT:0} #Configuración de puertos dinamicos de instancias
   
   
 eureka:
@@ -28,5 +28,5 @@ eureka:
     service-url:
       defaultZone: http://localhost:8761/eureka
   #Configuración de puertos dinamicos en la instancia que se va a generar varias veces
-  instance:
-    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+#  instance:
+#    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
