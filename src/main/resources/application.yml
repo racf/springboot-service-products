@@ -4,7 +4,7 @@ spring:
     #servicio-productos
   datasource:
     #Local
-    url: jdbc:postgresql://127.0.0.1:5432/db_curso
+    url: jdbc:postgresql://localhost:5432/db_curso
     username: user_test
     password: user_04!28#!
     driver-class-name: org.postgresql.Driver
@@ -26,7 +26,7 @@ server:
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8761/eureka
+      defaultZone: http://ec2-18-117-108-76.us-east-2.compute.amazonaws.com:8761/eureka
   #Configuración de puertos dinamicos en la instancia que se va a generar varias veces
 #  instance:
 #    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
